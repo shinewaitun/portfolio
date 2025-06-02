@@ -7,7 +7,8 @@ import FloatingWords from "./FloatingWords";
 export default function HeroJumbotron() {
   return (
     <section className="relative flex w-full min-h-screen flex-col md:flex-row items-center justify-center overflow-hidden bg-sky-gradient px-4">
-      <div className="z-10 flex flex-col justify-start items-start text-start text-white md:w-1/2">
+      <FloatingWords />
+      <div className="z-10 flex flex-col justify-start items-start text-start text-white md:w-1/2 cursor-pointer select-none">
         <h1 className="text-4xl md:text-6xl text-start font-bold drop-shadow-lg">
           Hello!
         </h1>

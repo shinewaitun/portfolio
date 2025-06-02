@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import HeroJumbotron from "./HeroJumboltron";
 import MyProjects from "./MyProjects";
 import SkillList from "./SkillList";
+import AboutMe from "./AboutMe";
 export default function HomePage() {
   useEffect(() => {
     const jqueryScript = document.createElement("script");
@@ -52,6 +53,7 @@ export default function HomePage() {
         id="ripple"
         className="bg-sea-gradient relative min-h-screen flex flex-col items-start justify-center pt-20 overflow-hidden"
       >
+        <AboutMe />
         <SkillList />
         <MyProjects />
       </div>

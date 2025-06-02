@@ -1,13 +1,16 @@
 "use client";
 
-import { UserIcon } from "lucide-react";
 import { useEffect } from "react";
 
 export default function SkillList() {
-  const skills = Array.from({ length: 10 }, () => ({
-    Icon: UserIcon,
-    title: "User",
-  }));
+  const skills = [
+    { title: "JavaScript", rating: 8.9 },
+    { title: "Next.js", rating: 9.0 },
+    { title: "Express.js", rating: 9.5 },
+    { title: "Express.js", rating: 9.5 },
+    { title: "Express.js", rating: 9.5 },
+    { title: "Express.js", rating: 9.5 },
+  ];
 
   useEffect(() => {
     function createBubble() {
@@ -23,42 +26,44 @@ export default function SkillList() {
       bubble.style.animation = `float ${duration}s linear infinite`;
 
       const container = document.getElementById("bubble-container-2");
-      if (container) {
-        container.appendChild(bubble);
-      }
+      if (container) container.appendChild(bubble);
 
-      setTimeout(() => {
-        bubble.remove();
-      }, duration * 1000);
+      setTimeout(() => bubble.remove(), duration * 1000);
     }
 
     for (let i = 0; i < 10; i++) createBubble();
     const bubbleInterval = setInterval(createBubble, 1000);
-
     return () => clearInterval(bubbleInterval);
   }, []);
 
   return (
-    <div className="relative min-w-screen min-h-screen flex items-start justify-center pt-20 overflow-hidden">
+    <div className="relative min-w-screen flex items-start justify-center pt-20 overflow-hidden">
       <div
         id="bubble-container-2"
-        className="absolute top inset-20 z-0 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none"
       ></div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-8 text-white">
-          My Skills
+        <h2 className="text-3xl font-bold text-center mb-10 text-white">
+          Skill Measurements
         </h2>
-        <div className="flex flex-col items-center space-y-6">
-          {skills.map(({ Icon, title }, index) => (
+
+        <div className="flex flex-wrap gap-6 justify-center">
+          {skills.map(({ title, rating }, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 px-6 py-4 backdrop-blur-lg rounded-3xl shadow-xl w-full max-w-md bubble-2"
+              className="bubble-text bg-white/10 rounded-xl backdrop-blur-md px-6 py-4 shadow-lg w-full sm:w-[48%]"
             >
-              <div className="text-white text-2xl">
-                <Icon />
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-white font-semibold text-lg">{title}</h3>
+                <span className="text-white font-medium">{rating}/10</span>
               </div>
-              <p className="text-white font-medium">{title}</p>
+              <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-aquamarine-gradient transition-all duration-500 ease-in-out"
+                  style={{ width: `${(rating / 10) * 100}%` }}
+                />
+              </div>
             </div>
           ))}
         </div>

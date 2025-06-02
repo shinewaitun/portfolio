@@ -59,6 +59,21 @@ body {
   pointer-events: none;
 }
 
+@keyframes float-fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-50px);
+  }
+}
+
+.animate-float-fade {
+  animation: float-fade 1.5s ease-out forwards;
+}
+
 @keyframes floatClouds {
   0% {
     transform: translateX(0);
@@ -70,6 +85,10 @@ body {
 
 .bg-sea-gradient {
   @apply bg-gradient-to-b from-blue-600 to-blue-950;
+}
+
+.bg-aquamarine-gradient {
+  @apply bg-gradient-to-l from-teal-200 to-sky-300;
 }
 
 .scrollbar-none {

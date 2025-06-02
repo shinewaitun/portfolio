@@ -52,7 +52,7 @@ export default function MyProjects() {
 
       setTimeout(() => {
         bubble.remove();
-      }, duration * 500000);
+      }, duration * 2000);
     }
 
     for (let i = 0; i < 10; i++) createBubble();
@@ -82,11 +82,11 @@ export default function MyProjects() {
               }`}
             >
               <div className="order-1 w-5/12"></div>
-              <div className="z-20 flex items-center justify-center order-1">
+              {/* <div className="z-20 flex items-center justify-center order-1">
                 <div className="relative w-13 h-13">
                   <div className="w-full h-full bubble-2" />
                 </div>
-              </div>
+              </div> */}
               <div
                 className={`bubble-text order-1 backdrop-blur-lg rounded-3xl shadow-xl w-5/12 px-6 py-4 ${
                   index % 2 === 0 ? "text-right" : "text-left"
