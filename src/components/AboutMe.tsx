@@ -5,20 +5,20 @@ export default function AboutMe() {
     <div className="relative min-w-screen flex flex-col md:flex-row items-start justify-center overflow-hidden">
       <div className="container flex flex-col gap-8 justify-center items-center text-start mx-auto px-4 py-8 relative z-10">
         <div className="flex w-fit bubble-text rounded-2xl justify-start items-center gap-5 py-2 px-4">
-          <Laptop size={50} />
-          <p className="text-xl sm:text-2xl md:text-3xl select-none cursor-pointer">
+          <Laptop color="white" size={50} />
+          <p className="text-xl sm:text-2xl md:text-3xl text-white select-none cursor-pointer">
             Full Stack Development
           </p>
         </div>
         <div className="flex bubble-text rounded-2xl justify-start items-center gap-5 py-2 px-4">
-          <Bolt size={50} />
-          <p className="text-xl sm:text-2xl md:text-3xl select-none cursor-pointer">
+          <Bolt color="white" size={50} />
+          <p className="text-xl sm:text-2xl md:text-3xl text-white select-none cursor-pointer">
             Software Engineering
           </p>
         </div>
         <div className="flex bubble-text rounded-2xl justify-start items-center gap-5 py-2 px-4">
-          <DatabaseZap size={50} />
-          <p className="text-xl sm:text-2xl md:text-3xl select-none cursor-pointer">
+          <DatabaseZap color="white" size={50} />
+          <p className="text-xl sm:text-2xl md:text-3xl text-white select-none cursor-pointer">
             Database Administration
           </p>
         </div>
