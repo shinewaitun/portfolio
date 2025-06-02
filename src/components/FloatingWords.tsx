@@ -29,9 +29,10 @@ export default function FloatingWords() {
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      const randomWord = techWords[Math.floor(Math.random() * techWords.length)];
+      const randomWord =
+        techWords[Math.floor(Math.random() * techWords.length)];
       const newWord: Word = {
-        id: Date.now() + Math.random(), // unique ID
+        id: Date.now() + Math.random(),
         word: randomWord,
         x: e.clientX,
         y: e.clientY,
@@ -41,19 +42,24 @@ export default function FloatingWords() {
 
       setTimeout(() => {
         setWords((prev) => prev.filter((w) => w.id !== newWord.id));
-      }, 1500); // Remove after 1.5s
+      }, 1500);
     }
 
-    window.addEventListener("click", handleClick);
-    return () => window.removeEventListener("click", handleClick);
+    const div = document.getElementById("jubboltron-div");
+
+    div!.addEventListener("click", handleClick);
+    return () => div!.removeEventListener("click", handleClick);
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden z-50 pointer-events-none">
+    <div
+      id="jubboltron-div"
+      className="absolute inset-0 overflow-hidden z-50 cursor-pointer"
+    >
       {words.map(({ id, word, x, y }) => (
         <span
           key={id}
-          className="absolute text-white text-opacity-80 text-base font-semibold pointer-events-none animate-float-fade"
+          className="absolute text-white text-opacity-80 text-base font-semibold cursor-pointer animate-float-fade"
           style={{
             left: x,
             top: y,

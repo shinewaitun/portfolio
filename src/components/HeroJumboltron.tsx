@@ -25,7 +25,7 @@ export default function HeroJumbotron() {
           src="/my_photo.png"
           alt="Portrait of [Your Name]"
           fill
-          className="object-contain"
+          className="object-contain select-none cursor-pointer"
           priority
         />
       </div>
