@@ -51,7 +51,7 @@ export default function HomePage() {
       <HeroJumbotron />
       <div
         id="ripple"
-        className="bg-sea-gradient relative min-h-screen flex flex-col items-start justify-center pt-20 overflow-hidden"
+        className="bg-sea-gradient relative min-h-screen flex flex-col gap-5 md:gap-16 items-start justify-center overflow-hidden md:pt-20"
       >
         <AboutMe />
         <SkillList />

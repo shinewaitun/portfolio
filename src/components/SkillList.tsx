@@ -37,7 +37,7 @@ export default function SkillList() {
   }, []);
 
   return (
-    <div className="relative min-w-screen flex items-start justify-center pt-20 overflow-hidden">
+    <div className="relative min-w-screen flex items-start justify-center  overflow-hidden">
       <div
         id="bubble-container-2"
         className="absolute inset-0 z-0 pointer-events-none"
