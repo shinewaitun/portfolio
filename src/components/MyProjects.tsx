@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export interface ProjectInfo {
   year: string;
   title: string;
   company: string;
   description: string;
-  tags: Array<string>;
+  tags: string[];
 }
 
-const timelineEvents = [
+const timelineEvents: ProjectInfo[] = [
   {
     year: "March 2023 – April 2023",
     title: "Hotel Reservation Systems",
@@ -157,73 +158,97 @@ const timelineEvents = [
 ];
 
 export default function MyProjects() {
-  // useEffect(() => {
-  //   function createBubble() {
-  //     const bubble = document.createElement("div");
-  //     bubble.classList.add("bubble");
+  function createBubble(containerId: string) {
+    const bubble = document.createElement("div");
+    bubble.classList.add("bubble");
 
-  //     const size = Math.random() * 15;
-  //     bubble.style.width = `${size}px`;
-  //     bubble.style.height = `${size}px`;
-  //     bubble.style.left = `${Math.random() * 100}%`;
-  //     bubble.style.setProperty("--random-offset", `${Math.random() * 360}deg`);
-  //     const duration = Math.random() * 15 + 10;
-  //     bubble.style.animation = `float ${duration}s linear infinite`;
+    const size = Math.random() * 15;
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.setProperty("--random-offset", `${Math.random() * 360}deg`);
+    const duration = Math.random() * 15 + 10;
+    bubble.style.animation = `float ${duration}s linear infinite`;
 
-  //     const container = document.getElementById("bubble-container");
-  //     if (container) {
-  //       container.appendChild(bubble);
-  //     }
+    const container = document.getElementById(containerId);
+    if (container) {
+      container.appendChild(bubble);
+    }
 
-  //     setTimeout(() => {
-  //       bubble.remove();
-  //     }, duration * 2000);
-  //   }
+    setTimeout(() => {
+      bubble.remove();
+    }, duration * 2000);
+  }
 
-  //   for (let i = 0; i < 10; i++) createBubble();
-  //   const bubbleInterval = setInterval(createBubble, 800);
+  useEffect(() => {
+    for (let i = 0; i < 10; i++) {
+      createBubble("bubble-container");
+    }
 
-  //   return () => clearInterval(bubbleInterval);
-  // }, []);
+    const bubbleInterval = setInterval(
+      () => createBubble("bubble-container"),
+      800
+    );
+
+    return () => {
+      clearInterval(bubbleInterval);
+    };
+  }, []);
 
   return (
     <div className="relative min-w-screen flex items-start justify-center  overflow-hidden">
       <div
-        id="bubble-container"
-        className="absolute inset-0 z-0 pointer-events-none"
+        id="bubble-container-1"
+        className="absolute inset-0 top-52 z-0 pointer-events-none"
       ></div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-8 text-white">
-          Projects Milestone
-        </h2>
-        <div className="grid grid-cols-1">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <h2 className="text-3xl font-bold text-center mb-8 text-white">
+            Projects Milestone
+          </h2>
+        </motion.div>
+        <div className="grid grid-cols-1 space-y-10">
           {timelineEvents.map((event, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`flex flex-col md:flex-row items-start gap-6 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="md:w-1/2 rounded-2xl p-4">
-                <h3 className="text-xl font-semibold">{event.title}</h3>
-                <p className="text-sm text-gray-300">{event.year}</p>
-                <p className="text-sm font-medium text-gray-700 mb-2">
-                  {event.company}
-                </p>
-                <p className="text-sm text-gray-100">{event.description}</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {event.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <div
+                className={`flex flex-col md:flex-row items-start gap-6 ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                <div className="bubble-text md:w-1/2 rounded-2xl p-4 space-y-3">
+                  <h3 className="text-gray-100 text-xl font-semibold">
+                    {event.title}
+                  </h3>
+                  <p className="text-sm text-gray-300">{event.year}</p>
+                  <p className="text-sm font-medium text-gray-300 mb-2">
+                    {event.company}
+                  </p>
+                  <p className="text-sm text-gray-100">{event.description}</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {event.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

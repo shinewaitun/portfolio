@@ -13,7 +13,7 @@ export default function HeroJumbotron() {
           Hello!
         </h1>
         <p className="mt-4 text-base sm:text-xl md:text-3xl max-w-xl drop-shadow-lg">
-          I'm <span className="font-semibold">Lucas</span>.
+          I'm <span className="font-semibold">Shine Wai Tun</span>.
         </p>
         <p className="mt-4 text-xl sm:text-3xl md:text-6xl max-w-xl drop-shadow-lg">
           <span className="font-semibold">Software Engineer</span>.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function SkillList({
   skills,
@@ -41,9 +42,13 @@ export default function SkillList({
       <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="flex flex-wrap gap-6 justify-center">
           {skills.map(({ title, rating }, index) => (
-            <div
-              key={index}
+            <motion.div
               className="bubble-text bg-white/10 rounded-xl backdrop-blur-md px-6 py-4 shadow-lg w-full sm:w-[48%]"
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.3 }}
             >
               <div className="flex justify-between items-center mb-2">
                 <h3 className="text-white font-semibold text-lg">{title}</h3>
@@ -55,7 +60,7 @@ export default function SkillList({
                   style={{ width: `${(rating / 10) * 100}%` }}
                 />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

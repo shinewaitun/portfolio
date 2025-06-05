@@ -9,17 +9,17 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
+    { href: "/#about", label: "About" },
+    { href: "/#skills", label: "Skills" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-9999 bg-sky-300/30 backdrop-blur-md border-b border-sky-100/30 text-white">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold tracking-wide">
-          Lucas
+          Shine Wai Tun
         </Link>
 
         <div className="hidden md:flex space-x-6">

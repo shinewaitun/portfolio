@@ -76,6 +76,7 @@ export default function HomePage() {
         className="bg-sea-gradient relative min-h-screen flex flex-col gap-5 md:gap-16 items-start justify-center overflow-hidden md:pt-20"
       >
         <motion.div
+          id="about"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0 }}
@@ -85,13 +86,14 @@ export default function HomePage() {
         </motion.div>
 
         <motion.div
+          id="skills"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-3xl font-bold text-center mb-10 text-white">
-            Technologies
+            Technical Skills
           </h2>
           <SkillList skills={techSkills} />
         </motion.div>
@@ -108,16 +110,13 @@ export default function HomePage() {
           <SkillList skills={languageSkills} />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
+        <div id="projects">
           <MyProjects />
-        </motion.div>
+        </div>
 
-        <Footer />
+        <div id="contact" className="w-screen">
+          <Footer />
+        </div>
       </div>
     </div>
   );
