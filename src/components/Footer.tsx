@@ -43,7 +43,7 @@ export default function Footer() {
         ></div>
 
         <div className="flex gap-4">
-          <h4 className="text-xl font-bold">Lucas</h4>
+          <h4 className="text-xl font-bold">Shine Wai Tun</h4>
           <sup className="text-sm text-slate-200 mt-1 ">Software Engineer</sup>
         </div>
 
