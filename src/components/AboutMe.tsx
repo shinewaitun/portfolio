@@ -1,4 +1,4 @@
-import { Bolt, DatabaseZap, Laptop } from "lucide-react";
+import { Bolt, DatabaseZap, Forward, Laptop } from "lucide-react";
 
 export default function AboutMe() {
   return (
@@ -28,15 +28,19 @@ export default function AboutMe() {
           About me
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-start text-white font-medium leading-relaxed">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, iure?
-          Sint eveniet ducimus culpa, asperiores at, cupiditate architecto
-          excepturi laboriosam sunt omnis, maxime neque voluptatem velit
-          consequuntur consectetur soluta. Nisi! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aperiam reiciendis deleniti ab est,
-          aspernatur delectus cumque dicta quibusdam veritatis, mollitia
-          expedita. Excepturi magni cupiditate totam omnis esse quas sapiente
-          distinctio?
+          Hey there! I'm someone who loves creating things — whether it’s a
+          smooth user interface, a clever piece of code, or a new side project
+          just for fun. I believe technology should feel intuitive, design
+          should tell a story, and good coffee makes everything better. I build
+          with intention and curiosity, always learning, always iterating.
         </p>
+        <button
+          onClick={() => window.open("/Shine Wai Tun's Resume_.pdf", "_blank")}
+          className="flex justify-center items-center gap-2 cursor-pointer bubble-text text-white px-4 py-2 mt-3 rounded-xl"
+        >
+          Know me more
+          <Forward />
+        </button>
       </div>
     </div>
   );

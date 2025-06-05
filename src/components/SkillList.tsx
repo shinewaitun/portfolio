@@ -2,16 +2,11 @@
 
 import { useEffect } from "react";
 
-export default function SkillList() {
-  const skills = [
-    { title: "JavaScript", rating: 8.9 },
-    { title: "Next.js", rating: 9.0 },
-    { title: "Express.js", rating: 9.5 },
-    { title: "Express.js", rating: 9.5 },
-    { title: "Express.js", rating: 9.5 },
-    { title: "Express.js", rating: 9.5 },
-  ];
-
+export default function SkillList({
+  skills,
+}: {
+  skills: { title: string; rating: number }[];
+}) {
   useEffect(() => {
     function createBubble() {
       const bubble = document.createElement("div");
@@ -44,10 +39,6 @@ export default function SkillList() {
       ></div>
 
       <div className="container mx-auto px-4 py-8 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-10 text-white">
-          Skill Measurements
-        </h2>
-
         <div className="flex flex-wrap gap-6 justify-center">
           {skills.map(({ title, rating }, index) => (
             <div

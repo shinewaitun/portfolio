@@ -8,12 +8,14 @@ const techWords = [
   "JavaScript",
   "React",
   "Next.js",
+  "Vue",
+  "Nuxt.js",
   "Tailwind",
   "Node.js",
   "API",
   "Frontend",
   "Backend",
-  "Blog",
+  "Design Patterns",
   "UI/UX",
 ];
 

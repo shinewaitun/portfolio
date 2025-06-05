@@ -188,6 +188,11 @@ body {
   opacity: 0.7;
 }
 
+#bubble-container {
+  pointer-events: none;
+  height: 95%;
+}
+
 @keyframes animate {
   0% {
     background-position-x: 0;
